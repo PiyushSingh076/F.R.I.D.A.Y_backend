@@ -1,10 +1,7 @@
-FROM ubuntu:latest AS build
-RUN apt-get-update
-RUN apt-get install openjdk-23-jdk -y
+FROM maven:openjdk:23-jdk AS build
 COPY . .
-RUN ./gradlew bootJar --no-daemon
-
-FROM openjdk:17-jdk-slim
+RUN mvn clean package -DskipTests
+FROM openjdk:23-jdk-slim
+COPY --from=builde /target/demo-0.0.1-SNAPSHOT.jar .demo.jar
 EXPOSE 8080
-COPY --from=build /app/target/SpringAiDemo-0.0.1-SNAPSHOT.jar /app/SpringAiDemo.jar
-CMD ["java", "-jar", "SpringAiDemo.jar"]
+ENTRYPOINT ["java","-jar","demo.jar"]
