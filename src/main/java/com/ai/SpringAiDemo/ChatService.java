@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ChatService {
+    // key in ur notes
     private final ChatModel chatModel;
 
     public ChatService(ChatModel chatModel) {
