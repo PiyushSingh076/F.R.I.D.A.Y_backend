@@ -1,26 +1,29 @@
-# Use Maven with OpenJDK 23 to build the app
-FROM maven:openjdk-23-jdk as build
+# Use the Maven image as base
+FROM maven:3.8.4-openjdk-11 as build
 
-# Set the working directory in the container
+# Install OpenJDK 23 (using apt-get for example)
+RUN apt-get update && apt-get install -y openjdk-23-jdk
+
+# Set the working directory
 WORKDIR /app
 
-# Copy the project files into the container
+# Copy project files into the container
 COPY . .
 
-# Run Maven to build the app (skip tests for faster build)
+# Build the application (skip tests for faster builds)
 RUN mvn clean package -DskipTests
 
-# Use OpenJDK 23 slim image to run the app
+# Use OpenJDK 23 slim image for running the application
 FROM openjdk:23-jdk-slim
 
-# Set the working directory in the container
+# Set working directory for the runtime stage
 WORKDIR /app
 
-# Copy the built JAR file from the build stage
+# Copy the jar file from the build stage
 COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar /app/demo.jar
 
-# Expose the port the app runs on (default for Spring Boot is 8080)
+# Expose the required port
 EXPOSE 8080
 
-# Start the Spring Boot app using the JAR file
+# Command to run the Spring Boot application
 ENTRYPOINT ["java", "-jar", "demo.jar"]
