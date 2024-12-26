@@ -1,8 +1,7 @@
+
 services:
   - type: web
     name: nova-ai
-    env: java
-    buildCommand: ./mvnw clean install -DskipTests
-    startCommand: java -jar target/SpringAiDemo-0.0.1-SNAPSHOT
+    buildCommand: docker build -t nova-ai .  # Build the Docker image
+    startCommand: docker run -p 8080:8080 nova-ai  # Run the Docker container
     plan: free
-    branch: master
