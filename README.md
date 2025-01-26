@@ -41,10 +41,6 @@ This is the backend application for the F.R.I.D.A.Y. system. It provides service
    java -jar target/F.R.I.D.A.Y_backend-0.0.1-SNAPSHOT.jar
    ```
 
-## Usage
-
-* **(Describe how to use the backend services)**
-
 ## Contributing
 
 Contributions are welcome! Please feel free to open issues or submit pull requests.
