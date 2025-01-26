@@ -53,5 +53,3 @@ This project is licensed under the MIT License - see the `LICENSE` file for deta
 
 For any questions or inquiries, please contact Piyush Singh at piyush1071singh@gmail.com.
 
-## Working video
-
