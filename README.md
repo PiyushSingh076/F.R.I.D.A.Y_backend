@@ -14,7 +14,8 @@ This is the backend application for the F.R.I.D.A.Y. system. It provides service
 
 * **Java**
 * **Spring Boot**
-* **(Add other relevant technologies used)**
+* **React.js**
+*  **SpringAI**
 
 ## Installation
 
@@ -56,9 +57,5 @@ This project is licensed under the MIT License - see the `LICENSE` file for deta
 
 For any questions or inquiries, please contact Piyush Singh at piyush1071singh@gmail.com.
 
-**Note:**
+## Working video
 
-* This README is a basic template and can be further customized based on the specific features and functionalities of the F.R.I.D.A.Y. backend application.
-* You can add more sections like "Screenshots," "Deployment," "Testing," etc., if applicable.
-* Replace the placeholder information with actual details about the app.
-* Update the README with more specific information about the project's features, technologies, installation, usage, and contributing guidelines.
